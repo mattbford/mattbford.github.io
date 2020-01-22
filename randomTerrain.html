@@ -14,7 +14,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html">Matt Belford - Random Terrain Generator</a></h1>
+						<h1><a href="index.html">Matt Belford - Random Terrain Generator </a></h1>
 					</header>
 
 				<!-- Wrapper -->
@@ -23,6 +23,7 @@
 							<div class="inner">
 								<h2>Random Terrain Generator</h2>
 								<p>Generate Random Terrain populated with buildings and tree in Unity using perlin noise</p>
+								<a class="icon brands fa-github" href="https://github.com/mattbford/CSC-305-Animation/tree/master/Assignment%203%20CSC%20305/Assets"> Click here to see the code</a>
 							</div>
 						</header>
 
@@ -30,13 +31,32 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Why?</h3>
-									<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+									<h3 class="major">Perlin Noise Generated Terrain in Unity</h3>
 
-									<p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
+									<div class="container" style="width: 100%; height:auto"><img style="width: 100%; height: auto" src="images/birds.png"></div>
 
-									<h3 class="major"></h3>
-									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+									<p>The objective of this project was to create a randomly generated landscape that would be populated by trees and houses. Above the landscape there would be a flock of birds (or boids as refered to in the code) that randomly fly around a 'leader' bird. This project was written in C# using the Unity game engine.</p>
+
+									<div class="container" style="width: 100%; height:auto;">
+										<figure class="figure" style="width: 45%; height: auto; display: inline-block">
+											<img style="width: 100%; height: auto" src="images/spline.png">
+											<figcaption class="figure-caption">Spline (src: <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">wikipedia</a>)</figcaption>
+										</figure>
+										<figure class="figure" style="width: 45%; height: auto; display: inline-block">
+											<img style="width: 100%; height: auto" src="images/fractalPerlin.jpg">
+											<figcaption class="figure-caption">Fractal Perlin Noise (src: <a href="https://stackoverflow.com/questions/9549851/uniform-distribution-from-a-fractal-perlin-noise-function-in-c-sharp">Stack Overflow</a>)</figcaption>
+										</figure>
+									</div>
+
+									</br>
+									<p>
+										A couple of the major difficulties with the project were bird movement, collision prevention, object placement, and fractal noise generation. The bird movement uses splines which makes sure that the bird's flight patterns look smooth and realistic. The splines essentially use previous and current direction as well as velocity to calculate the required change in slope for the bird to reach it's goal destination. The code for bird movement can be found  
+										<a href="https://github.com/mattbford/CSC-305-Animation/blob/master/Assignment%203%20CSC%20305/Assets/boidMovement.cs">here</a>
+										. Separation, cohesion, and velocity alignment were used to make sure that the flock stays together and does not collide with the terrain or other birds. All of these functions use a scanning radius that detects the position and direction of the surrounding birds to make an educated decision for the birds next action. The code for these three functionalities can be found 
+										<a href="https://github.com/mattbford/CSC-305-Animation/blob/master/Assignment%203%20CSC%20305/Assets/boidController.cs">here</a>
+										. The terrain itself is modelled by use a random height map that is generated using a fractal noise algorithm. The height map is then applied to a flat surface using triangle mesh mapping to create the terrain. The variation of the textures is based on the altitude of the height map which is set using a custom Material in Unity. The last major challenge of this project was the placement of objects. Houses and tree cannot be place on water so a location that is not at altitude zero must be selected. Once the location was selected the slope of the mesh must be found at that location in order to rotate the object to realistically sit on top of the terrain. All of the code regarding terrain generation and objects can be found 
+										<a href="https://github.com/mattbford/CSC-305-Animation/blob/master/Assignment%203%20CSC%20305/Assets/terrainMap.cs">here</a>.
+									</p>
 
 								</div>
 							</div>

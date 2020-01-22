@@ -30,14 +30,24 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Why?</h3>
-									<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+									<h3 class="major">A Data Mining Project</h3>
+									<p>The idea for LolWin was born during a group project in a Data Mining course at the University of Victoria. Myself and colleagues, Rolin Buckoke and Cooper Mountford, thought it would make an interesting project to analyze various elements of high level League of Legends matches to see if we could find any non-obvious gameplay events or conditions that tend to result in victory. Originally we were going to make a Django web application to display our data but later decided this was out of the scope of the project and I decided to take it on as a personal project.
+										</br>
+										<a href="https://docs.google.com/document/d/1FO6hilhaHnfFC2FxVF1CaFpr_5azSRRjcX-NXGcvaOY/edit?usp=sharing">Click here to see the report</a>
+									</p>
+									<p>
+										My contributions to this project include data collection, data preprocessing, and data visualization. For data collection I wrote a data scraper that collects all of the games from the top 200 players in North America over a specified interval. The data scaper code can be found 
+										<a href="https://github.com/mattbford/LolWin/blob/master/app/dataScraperV1.py">here</a>
+										. I worked on the data preprocessing with Rolin Buckoke and he laid out the ground work to clean all of the data by both specific champions and individual games. Originally the data was output as a JSON file but we decided that it was more work to parse JSON then a CSV so I converted the preprocessor to output CSV data. While doing so I also added in a pearson correlation generator. The code for the preprocessor can be found 
+										<a href="https://github.com/mattbford/LolWin/blob/master/app/matchDataPrepro.py">here</a>
+										.
+									</p>
 
-									<p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
-
-									<h3 class="major"></h3>
-									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-
+									<h3 class="major">The Web Application</h3>
+									<p>The web application is written using the Django python framework and consists of two major functions. A weekly match data analysis and a champion specific data analysis. The objective is to provide a page weekly updated page consisting of a analytics report similar in style to that of the project report that we made for class. Furthermore, the champion specific data preprocessor that ended up being redundant in our project would be used to create similar weekly reports that relate specifically to individual champions in the game.</p>
+									<div class="container" style="width: 100%; height:auto"><img style="width: 100%; height: auto" src="images/lolWin1.jpg"></div>
+									<p>The application is in the process of being deployed on google cloud's app engine. The data scraper as well as the preprocessors are planned to be ran as weekly cron jobs.</p>
+									<a class="icon brands fa-github" href="https://github.com/mattbford/LolWin">  The Web App Repository</a>
 								</div>
 							</div>
 
