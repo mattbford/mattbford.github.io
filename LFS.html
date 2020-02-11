@@ -23,6 +23,7 @@
 							<div class="inner">
 								<h2>Log File System</h2>
 								<p>A virtually simulated file system built in C</p>
+								<a class="icon brands fa-github" href="https://github.com/mattbford/Log-File-System"> Click here to see the code</a>
 							</div>
 						</header>
 
@@ -30,13 +31,23 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Why?</h3>
-									<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+									<h3 class="major">What is the Log File System</h3>
+									<p>A log-structured filesystem is a filesystem that operates on a disk that is structured as a list of blocks. For my virtual disk that my filesystem will operate on I use 4096 blocks of 512 bytes. The first 10 blocks are reserved. Block 0 is the 'superblock' which stores the metadata of the disk. Block 1 is our 'free node block' which has 4096 bits each representing the availability of the corresponding block address. '1' means available, '0' means unavailable. The first 10 blocks are reserved for our superblock, free node block, and INode mapping. Blocks 2 to 9 contain the INode mapping. The INode mapping uses big-endian hex values that are equivalent to the integer value of an INode block address. An INode contains the metadata associated with a file or directory including its block addresses.</p>
 
-									<p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
-
-									<h3 class="major"></h3>
-									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+									<h3 class="major">The Code</h3>
+									<p>The primary functionality of the file system can be found in <a href="https://github.com/mattbford/Log-File-System/blob/master/io/file.c">io/file.c</a>. All of these functions interact with the disk.c file which is responsible for making changes to the vdisk file otherwise called the "virtual disk". The code in file.c contains the following functions.
+									 <ul>
+									 	<li>Creation of INodes</li>
+									 	<li>Find Free INode block</li>
+										<li>Find Free File Block</li>
+										<li>Find INode Address</li>
+										<li>Find Directory Address</li>
+										<li>Read File</li>
+										<li>Create File (including directories)</li>
+										<li>Write to File</li>
+										<li>Delete File.</li>
+									 </ul>
+									 The <a href="https://github.com/mattbford/Log-File-System/blob/master/disk/disk.c">disk.c</a> file contains the functions responsible for writing to a block on the disk, reading a block on the disk, and creating the virtual disk. For more detail on the functionality behind each feature of the file system see the <a href="https://github.com/mattbford/Log-File-System/blob/master/readme.txt">readme</a></p>
 
 								</div>
 							</div>

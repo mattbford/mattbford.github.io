@@ -35,7 +35,7 @@
 
 									<div class="container" style="width: 100%; height:auto"><img style="width: 100%; height: auto" src="images/birds.png"></div>
 
-									<p>The objective of this project was to create a randomly generated landscape that would be populated by trees and houses. Above the landscape there would be a flock of birds (or boids as refered to in the code) that randomly fly around a 'leader' bird. This project was written in C# using the Unity game engine.</p>
+									<p>The objective of this project was to create a randomly generated landscape that would be populated by trees and houses. Above the landscape, there would be a flock of birds (or boids as referred to in the code) that randomly fly around a 'leader' bird. This project was written in C# using the Unity game engine.</p>
 
 									<div class="container" style="width: 100%; height:auto;">
 										<figure class="figure" style="width: 45%; height: auto; display: inline-block">
@@ -50,11 +50,11 @@
 
 									</br>
 									<p>
-										A couple of the major difficulties with the project were bird movement, collision prevention, object placement, and fractal noise generation. The bird movement uses splines which makes sure that the bird's flight patterns look smooth and realistic. The splines essentially use previous and current direction as well as velocity to calculate the required change in slope for the bird to reach it's goal destination. The code for bird movement can be found  
+										A couple of the major difficulties with the project were bird movement, collision prevention, object placement, and fractal noise generation. The bird movement uses splines which makes sure that the bird's flight patterns look smooth and realistic. The splines essentially use previous and current direction as well as velocity to calculate the required change in slope for the bird to reach its goal destination. The code for bird movement can be found  
 										<a href="https://github.com/mattbford/CSC-305-Animation/blob/master/Assignment%203%20CSC%20305/Assets/boidMovement.cs">here</a>
-										. Separation, cohesion, and velocity alignment were used to make sure that the flock stays together and does not collide with the terrain or other birds. All of these functions use a scanning radius that detects the position and direction of the surrounding birds to make an educated decision for the birds next action. The code for these three functionalities can be found 
+										. Separation, cohesion, and velocity alignment were used to make sure that the flock stays together and does not collide with the terrain or other birds. All of these functions use a scanning radius that detects the position and direction of the surrounding birds to make an educated decision for the bird's next action. The code for these three functionalities can be found 
 										<a href="https://github.com/mattbford/CSC-305-Animation/blob/master/Assignment%203%20CSC%20305/Assets/boidController.cs">here</a>
-										. The terrain itself is modelled by use a random height map that is generated using a fractal noise algorithm. The height map is then applied to a flat surface using triangle mesh mapping to create the terrain. The variation of the textures is based on the altitude of the height map which is set using a custom Material in Unity. The last major challenge of this project was the placement of objects. Houses and tree cannot be place on water so a location that is not at altitude zero must be selected. Once the location was selected the slope of the mesh must be found at that location in order to rotate the object to realistically sit on top of the terrain. All of the code regarding terrain generation and objects can be found 
+										. The terrain itself is modeled by using a random heightmap that is generated using a fractal noise algorithm. The height map is then applied to a flat surface using triangle mesh mapping to create the terrain. The variation of the textures is based on the altitude of the heightmap which is set using a custom Material in Unity. The last major challenge of this project was the placement of objects. Houses and trees cannot be placed on the water so a location that is not at altitude zero must be selected. Once the location was selected the slope of the mesh must be found at that location in order to rotate the object to realistically sit on top of the terrain. All of the code regarding terrain generation and objects can be found 
 										<a href="https://github.com/mattbford/CSC-305-Animation/blob/master/Assignment%203%20CSC%20305/Assets/terrainMap.cs">here</a>.
 									</p>
 
